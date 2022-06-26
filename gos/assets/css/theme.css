@@ -2454,3 +2454,7 @@ backdrop-filter: blur(10px);
 background-color: rgba(178, 60, 253, 0.1);
                   } 
 }
+
+.cart-wrap {
+	padding: 40px 0;
+}
