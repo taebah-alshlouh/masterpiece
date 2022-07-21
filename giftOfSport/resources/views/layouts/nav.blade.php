@@ -37,7 +37,7 @@
         <div class="navbar-collapse collapse" id="navbarContent">
           <ul class="navbar-nav ml-auto pt-3 pt-lg-0">
             <li class="nav-item active">
-              <a href="/" class="nav-link">Home</a>
+              <a href="/" class="nav-link {{ Request::is('/') ? 'active' : null }}">Home</a>
             </li>
             <li class="nav-item">
               <a href="./shop" class="nav-link">Shop</a>
@@ -63,27 +63,25 @@
             </li>
             @endif
             @else
-            <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->name }}
+            <li class="nav-item">
+              <a id="navbarDropdown" class="nav-link" href="profile" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <i class="fas fa-user"></i>   {{ Auth::user()->name }}   
+              </a>
+          </li>
+          <li>
+            <div class="nav-item" aria-labelledby="navbarDropdown">
+              <a class="nav-link" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
               </a>
 
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                     onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-              </div>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+          </div>
           </li>
           @endguest
-            <li class="nav-item">
-              <a href="profile" class="nav-link"><i class="fas fa-user"></i></a>
-            </li>
             <li class="nav-item">
               <a href="/cart" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
             </li>

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Favicon -->
+    <link href="{{ asset('img/favicon.ico')}}" rel="icon"> 
+    
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
   
     <link rel="stylesheet" href="../assets/css/maicons.css">
@@ -42,6 +47,7 @@
     <script src="../assets/js/google-maps.js"></script>
   
     <script src="../assets/js/theme.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>
 
